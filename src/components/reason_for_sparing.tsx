@@ -11,7 +11,7 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
 }) => {
   return (
     <div>
-      <label>Reason For Sparing: </label>
+      <label>Reason For Sparing:</label>
       <textarea
         
         value={value}

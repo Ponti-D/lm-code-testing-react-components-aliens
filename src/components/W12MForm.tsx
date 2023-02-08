@@ -16,21 +16,21 @@ const W12MForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(`Species Name = ${speciesName}`);
-	console.log(`Planet Name = ${planetName}`);
+    console.log(`Planet Name = ${planetName}`);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="w12MForm" onSubmit={handleSubmit}>
       <W12MHeader />
 
       <section className="w12MForm">
         {/* REST OF FORM GOES HERE */}
         <SpeciesName
-          name={speciesName}
+          value={speciesName}
           onChangeSpeciesName={(newValue) => setSpeciesName(newValue)}
         />
         <PlanetName
-          name={planetName}
+          value={planetName}
           onChangePlanetName={(newValue) => setPlanetName(newValue)}
         />
 

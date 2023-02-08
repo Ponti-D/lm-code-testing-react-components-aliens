@@ -1,12 +1,12 @@
 import React from "react";
 
-interface PlanetNameProps {
-  name: string;
+export interface PlanetNameProps {
+  value: string;
   onChangePlanetName: (newValue: string) => void;
 }
 
 const PlanetName: React.FC<PlanetNameProps> = ({
-  name,
+  value,
   onChangePlanetName,
 }) => {
   return (
@@ -14,7 +14,7 @@ const PlanetName: React.FC<PlanetNameProps> = ({
       <label>Planet Name:</label>
       <input
         type="text"
-        value={name}
+        value={value}
         name="planetName"
         onChange={(e) => onChangePlanetName(e.target.value)}
       />

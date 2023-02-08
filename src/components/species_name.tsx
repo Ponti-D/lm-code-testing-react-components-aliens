@@ -1,20 +1,20 @@
 import React from "react";
 
-interface SpeciesNameProps {
-  name: string;
+export interface SpeciesNameProps {
+  value: string;
   onChangeSpeciesName: (newValue: string) => void;
 }
 
 const SpeciesName: React.FC<SpeciesNameProps> = ({
-  name,
+  value,
   onChangeSpeciesName,
 }) => {
   return (
     <div>
-      <label>Species Name:</label>
+      <label htmlFor='speciesName' >Species Name:</label>
       <input
         type="text"
-        value={name}
+        value={value}
         name="speciesName"
         onChange={(e) => onChangeSpeciesName(e.target.value)}
       />
@@ -22,3 +22,4 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
   );
 };
 export default SpeciesName;
+ 
