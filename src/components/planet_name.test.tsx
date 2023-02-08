@@ -3,7 +3,7 @@ import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PlanetName from "./planet_name";
 
-test("renders Planet Name label element", async () => {
+test("renders Planet Name label element",  () => {
   render(<PlanetName value="" onChangePlanetName={() => {}} />);
   expect(screen.getByText("Planet Name:")).toBeInTheDocument();
 });

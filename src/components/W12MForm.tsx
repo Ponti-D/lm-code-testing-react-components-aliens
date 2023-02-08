@@ -7,7 +7,7 @@ import WhatIs2Plus2 from "./what_2_plus_2";
 import ReasonForSparing from "./reason_for_sparing";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("humans");
+  const [speciesName, setSpeciesName] = useState<string>("Humans");
   const [planetName, setPlanetName] = useState<string>("");
   const [numberOfBeings, setnumberOfBeings] = useState<string>("");
   const [whatIs2Plus2, setwhatIs2Plus2] = useState<string>("Not 4");
