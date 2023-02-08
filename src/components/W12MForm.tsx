@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import W12MHeader from "./W12MHeader";
 import SpeciesName from "./species_name";
 import PlanetName from "./planet_name";
@@ -7,43 +7,51 @@ import WhatIs2Plus2 from "./what_2_plus_2";
 import ReasonForSparing from "./reason_for_sparing";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("");
+  const [speciesName, setSpeciesName] = useState<string>("humans");
   const [planetName, setPlanetName] = useState<string>("");
-  const [numberOfBeings, setnumberOfBeings] = useState<number>(0);
+  const [numberOfBeings, setnumberOfBeings] = useState<string>("");
   const [whatIs2Plus2, setwhatIs2Plus2] = useState<string>("Not 4");
   const [reasonForSparing, setReasonForSparing] = useState<string>("");
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(`Species Name = ${speciesName}`);
+	console.log(`Planet Name = ${planetName}`);
+  };
 
   return (
-    <section className="w12MForm">
+    <form onSubmit={handleSubmit}>
       <W12MHeader />
-      {/* REST OF FORM GOES HERE */}
-      <SpeciesName
-        name={planetName}
-        onChangeSpeciesName={(newValue) => setSpeciesName(newValue)}
-      />
-      <PlanetName
-        name={speciesName}
-        onChangePlanetName={(newValue) => setPlanetName(newValue)}
-      />
 
-      <NumberOfBeings
-        value={numberOfBeings}
-        onChangeNoOfBeing={(newValue) => setnumberOfBeings(newValue)}
-      />
+      <section className="w12MForm">
+        {/* REST OF FORM GOES HERE */}
+        <SpeciesName
+          name={speciesName}
+          onChangeSpeciesName={(newValue) => setSpeciesName(newValue)}
+        />
+        <PlanetName
+          name={planetName}
+          onChangePlanetName={(newValue) => setPlanetName(newValue)}
+        />
 
-      <WhatIs2Plus2
-        value={whatIs2Plus2}
-        onChangeWhatIs2Plus2={(newValue) => setwhatIs2Plus2(newValue)}
-      />
+        <NumberOfBeings
+          value={numberOfBeings}
+          onChangeNoOfBeing={(newValue) => setnumberOfBeings(newValue)}
+        />
 
-      <ReasonForSparing
-        value={reasonForSparing}
-        onChangeReasonForSparing={(newValue) => setReasonForSparing(newValue)}
-      />
+        <WhatIs2Plus2
+          value={whatIs2Plus2}
+          onChangeWhatIs2Plus2={(newValue) => setwhatIs2Plus2(newValue)}
+        />
 
-	  <button type="submit">Submit</button>
-    </section>
+        <ReasonForSparing
+          value={reasonForSparing}
+          onChangeReasonForSparing={(newValue) => setReasonForSparing(newValue)}
+        />
+
+        <button type="submit">Submit</button>
+      </section>
+    </form>
   );
 };
 
