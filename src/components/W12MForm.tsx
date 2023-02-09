@@ -15,8 +15,12 @@ const W12MForm = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`Species Name = ${speciesName}`);
-    console.log(`Planet Name = ${planetName}`);
+    console.log(`Species Name = ${speciesName} ,
+              Planet Name = ${planetName},  
+              Number Of Beings = ${numberOfBeings},
+              What is 2 + 2? = ${whatIs2Plus2},
+              Reason For Sparing = ${planetName} 
+              `);
   };
 
   return (
