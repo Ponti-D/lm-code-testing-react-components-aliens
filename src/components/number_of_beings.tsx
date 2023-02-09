@@ -11,7 +11,7 @@ const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
 }) => {
   return (
     <div>
-      <label>Number Of Beings:</label>
+      <label htmlFor="numberOfBeings" >Number Of Beings:</label>
       <input
         type="text"
         value={value}
