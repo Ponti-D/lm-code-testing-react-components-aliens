@@ -17,7 +17,7 @@ test('displays WhatIs2Plus2 has value as expected', () => {
 
 test('Check if funciton is being called as expected', async () => { 
   const onChangeHandler = jest.fn();
-  render(<WhatIs2Plus2 value='Not 4' onChangeWhatIs2Plus2={onChangeHandler} />);
+  render(<WhatIs2Plus2 value='' onChangeWhatIs2Plus2={onChangeHandler} />);
 
   await userEvent.selectOptions(screen.getByRole('combobox'), 'Not 4');
   expect(onChangeHandler).toHaveBeenCalled();
