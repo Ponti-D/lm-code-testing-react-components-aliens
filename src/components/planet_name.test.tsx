@@ -3,9 +3,9 @@ import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PlanetName from "./planet_name";
 
-test("renders Planet Name label element",  () => {
+test("renders Planet Name label",  () => {
   render(<PlanetName value="" onChangePlanetName={() => {}} />);
-  expect(screen.getByText("Planet Name:")).toBeInTheDocument();
+  expect(screen.getByText(/Planet Name:/i)).toBeInTheDocument();
 });
 test('displays planet Name element value as expected', () => {  
     const onChangeHandler = jest.fn();
