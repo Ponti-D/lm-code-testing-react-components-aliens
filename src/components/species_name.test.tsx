@@ -33,23 +33,39 @@ it("Given the speciesName entered correctly there should not be error messages p
   expect(screen.queryByText('error')).not.toBeInTheDocument();
 });
 
-it("Given the speciesName entered incorrectly there should be error messages present", async () => {
+it("Given the speciesName entered is shorted than 3 charactors there should be error messages present", async () => {
   const onChangeHandler = jest.fn();
   render(
-    <SpeciesName speciesName="938493024" onChangeSpeciesName={onChangeHandler} />
+    <SpeciesName speciesName="" onChangeSpeciesName={onChangeHandler} />
   );
   await userEvent.type(screen.getByRole("textbox"), "h");
   expect(screen.getByText('Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed')).toBeInTheDocument();
 });
 
+it("Given the speciesName entered longer than 23 charactors there should be error messages present", async () => {
+  const onChangeHandler = jest.fn();
+  render(
+    <SpeciesName speciesName="" onChangeSpeciesName={onChangeHandler} />
+  );
+  await userEvent.type(screen.getByRole("textbox"), "wweeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeweeeeeeeeeeeeeeee");
+  expect(screen.getByText('Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed')).toBeInTheDocument();
+});
+ 
+it("Given the speciesName entered is numbers there should be error messages present", async () => {
+  const onChangeHandler = jest.fn();
+  render(
+    <SpeciesName speciesName="" onChangeSpeciesName={onChangeHandler} />
+  );
+  await userEvent.type(screen.getByRole("textbox"), "8888");
+  expect(screen.getByText('Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed')).toBeInTheDocument();
+});
 
-// it("Given the speciesName entered longer than 23 charactors there should be error messages present", () => {
-//   const onChangeHandler = jest.fn();
-//   render(
-//     <SpeciesName
-//       speciesName="wweeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeweeeeeeeeeeeeeeee"
-//       onChangeSpeciesName={onChangeHandler}
-//     />
-//   );
-//   expect(screen.getByText(/error:/i)).toBeInTheDocument();
-// });
+it("Given the speciesName entered contains special characters there should be error messages present", async () => {
+  const onChangeHandler = jest.fn();
+  render(
+    <SpeciesName speciesName="" onChangeSpeciesName={onChangeHandler} />
+  );
+  await userEvent.type(screen.getByRole("textbox"), "humans@!*");
+  expect(screen.getByText('Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed')).toBeInTheDocument();
+});
+ 
