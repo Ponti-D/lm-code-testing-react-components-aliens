@@ -1,8 +1,9 @@
-export const ErrorMessage: React.FC<{message:string | undefined}> = 
-({message}) => (
-    <div>
-        <p>{message}</p>
-    </div>
-
-)
-export default ErrorMessage
+export interface ErrorMessageProps {
+    message: string | undefined;
+}
+const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
+  return (
+        <p> {message}</p>  
+  );
+};
+export default ErrorMessage;

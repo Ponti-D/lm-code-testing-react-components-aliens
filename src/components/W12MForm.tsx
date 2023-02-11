@@ -30,7 +30,7 @@ const W12MForm = () => {
       <section className="w12MForm">
         {/* REST OF FORM GOES HERE */}
         <SpeciesName
-          value={speciesName}
+          speciesName={speciesName}
           onChangeSpeciesName={(newValue) => setSpeciesName(newValue)}
         />
         <PlanetName
