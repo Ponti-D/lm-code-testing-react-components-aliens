@@ -34,7 +34,7 @@ const W12MForm = () => {
           onChangeSpeciesName={(newValue) => setSpeciesName(newValue)}
         />
         <PlanetName
-          value={planetName}
+          planetName={planetName}
           onChangePlanetName={(newValue) => setPlanetName(newValue)}
         />
 

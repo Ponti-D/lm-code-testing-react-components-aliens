@@ -2,45 +2,40 @@ import { useState } from "react";
 import ErrorMessage from "./error_message";
 
 export interface PlanetNameProps {
-  value: string;
+  planetName: string;
   onChangePlanetName: (newValue: string) => void;
 }
 
 const PlanetName: React.FC<PlanetNameProps> = ({
-  value,
+  planetName,
   onChangePlanetName,
 }) => {
-  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(
+    undefined
+  );
 
   const validate: (value: string) => string | undefined = (value) => {
-    if (value.length < 3 || value.length > 23) {
-      return 'Planet name must be between 2 and 23 characters';
+    if (value.length < 2 || value.length > 49 || !/^[a-zA-Z0-9 ]*$/.test(value)) {
+      return "Error - Planet Name must be between 2 and 49 characters. Numbers are allowed, but no special characters.";
     }
-    if (!/^[A-Za-z0-9 ]*$/.test(value)) {
-      return 'No special characters allowed';
-    }
-    return '';
-
+    return undefined;
   };
 
   return (
-    <>
     <div>
       <label htmlFor="planetName">Planet Name:</label>
       <input
         type="text"
-        value={value}
+        value={planetName}
         name="planetName"
         onChange={(e) => {
           const errorMessage = validate(e.target.value);
           setErrorMessage(errorMessage);
-          onChangePlanetName(e.target.value)
+          onChangePlanetName(e.target.value);
         }}
       />
-      <ErrorMessage message={errorMessage}/>
-     
+      <ErrorMessage message={errorMessage} />
     </div>
-    </>
   );
 };
 export default PlanetName;
