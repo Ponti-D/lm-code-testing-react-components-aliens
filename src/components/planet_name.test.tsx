@@ -4,11 +4,11 @@ import userEvent from "@testing-library/user-event";
 import PlanetName from "./planet_name"; 
 
 
-test("renders Planet Name label", () => {
+test("Renders Planet Name label", () => {
   render(<PlanetName planetName="" onChangePlanetName={() => {}} />);
   expect(screen.getByText(/Planet Name:/i)).toBeInTheDocument();
 });
-test("displays planet Name element planetName as expected", () => {
+test("Risplays planet Name element planetName as expected", () => {
   const onChangeHandler = jest.fn();
   render(<PlanetName planetName="Mars" onChangePlanetName={onChangeHandler} />);
   const planetNameElement = screen.getByRole("textbox");
@@ -65,3 +65,11 @@ it("Given the PlanetName entered contains special characters there should be err
   ).toBeInTheDocument();
 });
 
+// it("Given the planetname entered as number there should not be error messages present", async () => {
+//   const onChangeHandler = jest.fn();
+//   render(
+//     <PlanetName planetName="" onChangePlanetName={onChangeHandler} />
+//   );
+//   await userEvent.type(screen.getByRole("textbox"), "234");
+//   expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
+// });

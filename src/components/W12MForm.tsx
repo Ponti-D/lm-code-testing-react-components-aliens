@@ -39,7 +39,7 @@ const W12MForm = () => {
         />
 
         <NumberOfBeings
-          value={numberOfBeings}
+          numberOfBeings={numberOfBeings}
           onChangeNoOfBeing={(newValue) => setnumberOfBeings(newValue)}
         />
 
@@ -49,7 +49,7 @@ const W12MForm = () => {
         />
 
         <ReasonForSparing
-          value={reasonForSparing}
+          reasonForSparing={reasonForSparing}
           onChangeReasonForSparing={(newValue) => setReasonForSparing(newValue)}
         />
 

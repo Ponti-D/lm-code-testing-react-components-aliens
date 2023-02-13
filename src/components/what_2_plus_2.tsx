@@ -10,20 +10,17 @@ const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({
   value,
   onChangeWhatIs2Plus2,
 }) => {
-  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
   const validate = (value: string) => {
-    if (value === '4') {
-      return '';
-    }
-    if (value === 'Not 4') {
-      return 'Not quite correct - try again!';
-    }
+    if (value === '4') return undefined;
+    if (value === 'Not 4') return 'Error - not quite correct - try again!';
+    
     
   };
   return (
-    <>
+   
     <div>
-      <label >What is 2 + 2?</label>
+      <label htmlFor="whatIs2Plus2" >What is 2 + 2?</label>
       <select
         name='whatIs2Plus2'
         id='whatIs2Plus2'
@@ -39,7 +36,7 @@ const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({
       </select>
       <ErrorMessage message={errorMessage} />
     </div>
-    </>
+    
   );
 };
 export default WhatIs2Plus2;

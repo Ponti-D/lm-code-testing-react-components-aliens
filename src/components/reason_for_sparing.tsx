@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import ErrorMessage from "./error_message";
 
 interface ReasonForSparingProps {
-  value: string;
+  reasonForSparing: string;
   onChangeReasonForSparing: (newValue: string) => void;
 }
 
 const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
-  value,
+  reasonForSparing,
   onChangeReasonForSparing,
 }) => {
 
@@ -15,17 +15,17 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
 
   const validate: (value: string) => string | undefined = (value) => {
     if (value.length < 17 || value.length > 153) {
-      return 'Reason must be between 17 and 153 characters';
+      return 'Error - Reason must be between 17 and 153 characters';
     }
-    return '';
+    return undefined;
   };
 
   return (
-    <>
+   
     <div>
       <label htmlFor='reasonforsparing' >Reason For Sparing:</label>
       <textarea       
-        value={value}
+        value={reasonForSparing}
         name='reasonforsparing'
         onChange={(e) => {         
           const errorMessage = validate(e.target.value);
@@ -34,7 +34,7 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
       />
        <ErrorMessage message={errorMessage}/>     
     </div>
-    </>
+ 
   );
 };
 export default ReasonForSparing;
