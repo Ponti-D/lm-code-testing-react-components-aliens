@@ -7,24 +7,25 @@ import WhatIs2Plus2 from "./what_2_plus_2";
 import ReasonForSparing from "./reason_for_sparing";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("Humans");
+  const [speciesName, setSpeciesName] = useState<string>(" ");
   const [planetName, setPlanetName] = useState<string>("");
   const [numberOfBeings, setnumberOfBeings] = useState<string>("");
-  const [whatIs2Plus2, setwhatIs2Plus2] = useState<string>("Not 4");
+  const [whatIs2Plus2, setwhatIs2Plus2] = useState<string>(" ");
   const [reasonForSparing, setReasonForSparing] = useState<string>("");
- 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(`Species Name = ${speciesName} ,
+    const submitMessage = `Species Name =  ${speciesName} ,
               Planet Name = ${planetName},  
               Number Of Beings = ${numberOfBeings},
               What is 2 + 2? = ${whatIs2Plus2},
               Reason For Sparing = ${planetName} 
-              `);
+              `;
+    console.log(submitMessage);
   };
 
   return (
-    <form className="w12MForm" onSubmit={handleSubmit} >
+    <form className="w12MForm" onSubmit={handleSubmit}>
       <W12MHeader />
 
       <section className="w12MForm">
@@ -53,7 +54,8 @@ const W12MForm = () => {
           onChangeReasonForSparing={(newValue) => setReasonForSparing(newValue)}
         />
 
-        <button  type='submit' >Submit</button>  
+        <button type="submit">Submit</button>
+      
       </section>
     </form>
   );

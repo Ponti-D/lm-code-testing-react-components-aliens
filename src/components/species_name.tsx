@@ -16,7 +16,7 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
 
   const validate: (value: string) => string | undefined = (value) => {
     if (value.length < 3 || value.length > 23 || !/^[A-Za-z ]*$/.test(value)) {
-      return "Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed";
+      return "Error - Species Name must be between 3 and 23 characters. No numbers or special characters allowed";
     } 
     return undefined;
   };

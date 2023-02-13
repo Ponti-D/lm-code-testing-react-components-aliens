@@ -45,7 +45,7 @@ describe("Species Name", () => {
     await userEvent.type(screen.getByRole("textbox"), "h");
     expect(
       screen.getByText(
-        "Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed"
+        "Error - Species Name must be between 3 and 23 characters. No numbers or special characters allowed"
       )
     ).toBeInTheDocument();
   });
@@ -61,7 +61,7 @@ describe("Species Name", () => {
     );
     expect(
       screen.getByText(
-        "Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed"
+        "Error - Species Name must be between 3 and 23 characters. No numbers or special characters allowed"
       )
     ).toBeInTheDocument();
   });
@@ -74,7 +74,7 @@ describe("Species Name", () => {
     await userEvent.type(screen.getByRole("textbox"), "8888");
     expect(
       screen.getByText(
-        "Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed"
+        "Error - Species Name must be between 3 and 23 characters. No numbers or special characters allowed"
       )
     ).toBeInTheDocument();
   });
@@ -87,7 +87,7 @@ describe("Species Name", () => {
     await userEvent.type(screen.getByRole("textbox"), "humans@!*");
     expect(
       screen.getByText(
-        "Error - Species Name must be between 2 and 23 characters. No numbers or special characters allowed"
+        "Error - Species Name must be between 3 and 23 characters. No numbers or special characters allowed"
       )
     ).toBeInTheDocument();
   });

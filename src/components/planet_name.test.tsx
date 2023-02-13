@@ -65,11 +65,10 @@ it("Given the PlanetName entered contains special characters there should be err
   ).toBeInTheDocument();
 });
 
-// it("Given the planetname entered as number there should not be error messages present", async () => {
-//   const onChangeHandler = jest.fn();
-//   render(
-//     <PlanetName planetName="" onChangePlanetName={onChangeHandler} />
-//   );
-//   await userEvent.type(screen.getByRole("textbox"), "234");
-//   expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
-// });
+it("Given the planetname entered as number there should not be error messages present",  () => {
+  const onChangeHandler = jest.fn();
+  render(
+    <PlanetName planetName="234" onChangePlanetName={onChangeHandler} />
+  );
+  expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
+});

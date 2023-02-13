@@ -48,9 +48,8 @@ test(`Given the NumberOfBeings less than 1,000,000,000 there should be error mes
     });
 
 
-  // test(`Given the NumberOfBeings is at least 1,000,000,000 there should not be error messages present`, async () => { 
-  //   const onChangeHandler = jest.fn();
-  //   render(<NumberOfBeings numberOfBeings='' onChangeNoOfBeing={onChangeHandler} />);
-  //   await userEvent.type(screen.getByRole('textbox'), '1000000000');	 	
-  //   	expect(screen.queryByText("Error - Only numbers allowed. Number of beings must be at least 1,000,000,000")).not.toBeInTheDocument();
-  //   });
+  test(`Given the NumberOfBeings is at least 1,000,000,000 there should not be error messages present`,  () => { 
+    const onChangeHandler = jest.fn();
+    render(<NumberOfBeings numberOfBeings='1000000000' onChangeNoOfBeing={onChangeHandler} />);	
+    	expect(screen.queryByText("Error - Only numbers allowed. Number of beings must be at least 1,000,000,000")).not.toBeInTheDocument();
+    });
